@@ -77,31 +77,6 @@
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <script>
-
-      $("#main").hide();
-      $('#login').show();
-      
-      $('#sub').click(function(){
-          $('#login').hide()
-            window.name = $('#uname').val();
-          $('#main').show();
-          var socket = io();
-          socket.emit('joined', window.name);
-      });
-
-      $(function () {
-          var socket = io();
-          $('form').submit(function(){
-            socket.emit('chat message', window.name + ': ' + $('#m').val());
-            $('#m').val('');
-            return false;
-          });
-          socket.on('chat message', function(msg){
-            $('#messages').append($('<p>').html(msg));
-          });
-        });
-
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
